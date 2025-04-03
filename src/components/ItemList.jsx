@@ -1,4 +1,4 @@
-import Item from './Item.jsx'; 
+import Item from './Item.jsx';
 
 export default function ItemList({ food, isLoading }) {
   return (
@@ -6,11 +6,10 @@ export default function ItemList({ food, isLoading }) {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-          food.extendedIngredients.map((item) => (
-            <Item item={item}/>
-          ))
+        food.extendedIngredients?.map((item) => (
+          <Item key={item.id} item={item} />  // ✅ `key` should be here
+        ))
       )}
-      {}
     </div>
   );
 }

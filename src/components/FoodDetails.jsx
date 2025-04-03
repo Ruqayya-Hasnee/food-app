@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ItemList from "./ItemList.jsx"; // Adjust path if needed
 import styles from "./foodDetails.module.css";
 
 export default function FoodDetails({ foodId }) {
@@ -49,15 +50,15 @@ export default function FoodDetails({ foodId }) {
           </strong>
         </div>
         <h2>Ingredients</h2>
-        <ItemList food={food} isLoading={isLoading}/>
+        <ItemList food={food} isLoading={isLoading} />
         <h2>Instructions</h2>
         <div className={styles.recipeInstructions}>
           <ol>
             {isLoading ? (
               <p>Loading...</p>
             ) : (
-              food.analyzedInstructions[0].steps.map((step) => (
-                <li>{step.step}</li>
+              food.analyzedInstructions[0].steps.map((step, index) => (
+                <li key={index}>{step.step}</li> // Add `key` prop here
               ))
             )}
           </ol>

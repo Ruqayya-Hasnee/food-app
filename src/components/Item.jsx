@@ -2,7 +2,7 @@ import styles from "./item.module.css"
 export default function Item({ item }) {
   return (
     <div>
-      <div className={styles.itemContainer} key={item.id}>
+      <div className={styles.itemContainer}>
         <div className={styles.imageContainer}>
           <img
           className={styles.image}
